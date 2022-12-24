@@ -14,7 +14,7 @@ public class MqttClient {
     MqttPahoClientFactory clientFactory(@Value("${mqtt.server.local.uri}") String brokerUri){
         var factory = new DefaultMqttPahoClientFactory();
         var options = new MqttConnectOptions();
-        String password = "b00mb0x";
+        String password = "12345678";
         options.setServerURIs(new String[] {brokerUri});
         options.setUserName("guilherme");
         options.setPassword(password.toCharArray());

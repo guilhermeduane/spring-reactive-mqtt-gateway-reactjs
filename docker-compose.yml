@@ -1,0 +1,43 @@
+version: "3"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    network_mode: "host"
+    volumes:
+      - ./config/:/mosquitto/config/:ro
+      - ./log/:/mosquitto/log/
+      - data:/mosquitto/data/
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+  spring-mqtt:
+    network_mode: host
+    depends_on:
+      - db
+    image: spring-mqtt
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+
+volumes:
+  data: ~
+  db:
+    driver: local
