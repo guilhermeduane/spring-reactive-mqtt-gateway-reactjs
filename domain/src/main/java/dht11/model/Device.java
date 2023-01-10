@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 @Data
 public class Device {
     @Id
-    private Long deviceId;
+    private Long id;
     private String code;
     private String description;
 }

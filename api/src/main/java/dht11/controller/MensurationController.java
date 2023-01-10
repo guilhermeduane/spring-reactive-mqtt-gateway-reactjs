@@ -9,8 +9,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@CrossOrigin()
 @RequestMapping(path="mensuration", produces = "application/json")
-@CrossOrigin(origins="http://localhost:8080")
 public class MensurationController {
 
     private MensurationService service;
@@ -22,6 +22,12 @@ public class MensurationController {
     @GetMapping
     public Flux<Mensuration> findAll(){
         return service.findAll();
+    }
+
+    @GetMapping("/last")
+    public Flux<Mensuration> findLastMensurations(){
+
+        return service.findLastMensurations();
     }
 
     @PostMapping

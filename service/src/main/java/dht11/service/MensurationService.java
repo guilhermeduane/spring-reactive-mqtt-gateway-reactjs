@@ -25,5 +25,7 @@ public class MensurationService {
     }
 
 
-
+    public Flux<Mensuration> findLastMensurations() {
+        return repository.findAllByLastTimestamp();
+    }
 }
