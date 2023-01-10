@@ -38,7 +38,7 @@ public class MqttIn {
                     Mensuration mensuration = new Mensuration();
                     mensuration.setTemperature(mensurationMessage.getTemperature());
                     mensuration.setHumidity(mensurationMessage.getHumidity());
-                    mensuration.setDeviceId(1L);
+                    mensuration.setDeviceId(mensurationMessage.getDevice_id());
                     mensuration.setTimestamp(Instant.ofEpochSecond(mensurationMessage.getTimestamp()).atZone(ZoneId.systemDefault()).toLocalDateTime());
                     repository.save(mensuration).block();
 

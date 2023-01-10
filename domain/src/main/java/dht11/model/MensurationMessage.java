@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class MensurationMessage {
-    private String device;
+    private Long device_id;
     private Integer temperature;
     private Integer humidity;
     private Long timestamp;

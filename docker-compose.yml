@@ -36,7 +36,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_PORT: 5432
-
+  react-mqtt:
+    image: react-mqtt
+    restart: always
+    build: ./frontend-mqtt
+    ports:
+      - "3000:3000"
+    depends_on:
+      - spring-mqtt
 volumes:
   data: ~
   db:
