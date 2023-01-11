@@ -43,7 +43,7 @@ or
 ```
 docker-compose up --build
 ```
- * Acess the React frontend on : 
+ * Acess the ReactJs frontend on : 
 
 ```
 http://localhost:3000
