@@ -54,5 +54,5 @@ You can debug spring app on container using port 5005.
 
 ## 😄 TODO 
 TODO Tasks :
-* Create .env file to docker compose to set real IP Address with more consistency
+* Create .env file to docker compose to set the broker IP Address with more consistency
 * Refactor the react code by updating the libraries, removing the warnings and a clean code
