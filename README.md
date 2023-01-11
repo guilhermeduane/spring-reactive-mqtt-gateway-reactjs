@@ -1,6 +1,6 @@
 # DHT11 MQTT Spring Reactive MQTT Gateway with Postgres, ReactJS and Docker Compose
 
-Java Spring reactive gateway to receive DHT11 sensor humidity and temperature from MQTT and record in postgres database. You can create devices and see last mensuration values on ReactJs App. 
+Java Spring reactive gateway to receive DHT11 sensor humidity and temperature from MQTT and record in postgres database using Reactive Spring and R2DBC. You can create devices and see last mensuration values on ReactJs App. 
 This project is dockerized and can runned on docker compose file with mosquitto broker, postgres database, react app and spring api and mqtt.
 
 ## Change MQTT Broker IP to accept external connections
@@ -49,7 +49,7 @@ docker-compose up --build
 http://localhost:3000
 ```
 
-You can debug spring app on container using port 5005.
+You can debug spring app on docker container using port 5005.
 
 
 ## 😄 TODO 
